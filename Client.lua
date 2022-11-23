@@ -42,12 +42,35 @@ RegisterNetEvent('qb-stash:client:openStash', function(currentstash, stash)
 
 end)
 
-RegisterNetEvent("qb-stashs:shops")
-AddEventHandler("qb-stashs:shops", function()
-    TriggerServerEvent("inventory:server:OpenInventory", "shop", "shop", Config.Items)
-        if Config.Shops[OpenInventory].gangrequired then
-        if PlayerGang == Config.Stashes[OpenInventory].gang then
+RegisterNetEvent('qb-stashs:shops', function()
+    local PlayerData = QBCore.Functions.GetPlayerData()
+    local PlayerJob = PlayerData.job.name
+    local PlayerGang = PlayerData.gang.name
+    local canOpen = false
+
+    if Config.PoliceOpen then 
+        if PlayerJob == "police" then
             canOpen = true
         end
     end
+    
+    if Config.Shops[OpenInventory].jobrequired then 
+        if PlayerJob == Config.Stashes[OpenInventory].job then
+            canOpen = true
+        end
+    end
+        
+    if Config.Shops[OpenInventory].gangrequired then
+        if PlayerGang == Config.Shops[OpenInventory].gang then
+            canOpen = true
+        end
+    end
+
+    if canOpen then
+        TriggerServerEvent("inventory:server:OpenInventory", "shops", "shops", Config.Items)
+        TriggerEvent("inventory:client:OpenInventory", Config.Shops[OpenInventory].shopshName)
+    else
+        QBCore.Functions.Notify('You cannot open this', 'error')
+    end
+
 end)
