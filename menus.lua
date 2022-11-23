@@ -11,12 +11,10 @@ Citizen.CreateThread(function()
                         event = "qb-menu:OrderMenu",
                         icon = "fas fa-laptop",
                         label = "Order Ingredients!",
-                        requirecid = true,
                         jobrequired = false,
                         gangrequired = false,
                         gang = "",
-                        job = "",
-                        cid = {"MAH44286"},  
+                        job = "",  
                     },
                 },
                 distance = 1.5
