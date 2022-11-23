@@ -68,7 +68,7 @@ RegisterNetEvent('qb-stashs:shops', function()
 
     if canOpen then
         TriggerServerEvent("inventory:server:OpenInventory", "shops", "shops", Config.Items)
-        TriggerEvent("inventory:client:OpenInventory", Config.Shops[OpenInventory].shopshName)
+        TriggerEvent("inventory:client:OpenInventory", Config.Shops[OpenInventory].shopsName)
     else
         QBCore.Functions.Notify('You cannot open this', 'error')
     end
