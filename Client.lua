@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-RegisterNetEvent('qb-stash:client:openStash', function(currentstash, stash)
+RegisterNetEvent('qb-stashs:client:openStash', function(currentstash, stash)
 
     local PlayerData = QBCore.Functions.GetPlayerData()
     local PlayerJob = PlayerData.job.name
@@ -55,7 +55,7 @@ RegisterNetEvent('qb-stashs:shops', function()
     end
     
     if Config.Shops[OpenInventory].jobrequired then 
-        if PlayerJob == Config.Stashes[OpenInventory].job then
+        if PlayerJob == Config.Shops[OpenInventory].job then
             canOpen = true
         end
     end
