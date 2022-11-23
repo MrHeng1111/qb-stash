@@ -1,6 +1,6 @@
 Citizen.CreateThread(function()
-    exports['qb-target']:AddBoxZone("burgerfridge", vector3(-1203.71, -895.86, 14.0), 1.6, 1, {
-            name="burgerfridge",
+    exports['qb-target']:AddBoxZone("shops", vector3(-1203.71, -895.86, 14.0), 1.6, 1, {
+            name="shops",
             heading=35,
             debugPoly=false,
             minZ=13.0,
@@ -17,8 +17,6 @@ Citizen.CreateThread(function()
                         gang = "",
                         job = "",
                         cid = {"MAH44286"},  
-                        stashSize = 1250000,
-                        stashSlots = 125, 
                     },
                 },
                 distance = 1.5
