@@ -42,7 +42,12 @@ RegisterNetEvent('qb-stash:client:openStash', function(currentstash, stash)
 
 end)
 
-RegisterNetEvent("qb-stashs:shop")
-AddEventHandler("qb-stashs:shop", function()
+RegisterNetEvent("qb-stashs:shops")
+AddEventHandler("qb-stashs:shops", function()
     TriggerServerEvent("inventory:server:OpenInventory", "shop", "shop", Config.Items)
+        if Config.Shops[OpenInventory].gangrequired then
+        if PlayerGang == Config.Stashes[OpenInventory].gang then
+            canOpen = true
+        end
+    end
 end)
