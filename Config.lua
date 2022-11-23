@@ -15,6 +15,7 @@ label = "Shop",
             info = {},
             type = "item",
             slot = 1,
+            gangrequired = false,
         },
         [2] = {
             name = "burger-raw",
