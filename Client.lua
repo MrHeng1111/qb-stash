@@ -41,3 +41,8 @@ RegisterNetEvent('qb-stash:client:openStash', function(currentstash, stash)
     end
 
 end)
+
+RegisterNetEvent("qb-stashs:shop")
+AddEventHandler("qb-stashs:shop", function()
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "shop", Config.Items)
+end)
